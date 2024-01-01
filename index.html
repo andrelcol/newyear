@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="title">Happy New Year!</h1>
+    <h1 id="title">#FAZOR</h1>
+    <h1 id="title">FELIZ ANO NOVOO!</h1>
+    <h1 id="title">FELIZ PASCOA!</h1>
+    <h1 id="title"></h1>
 <div class="stars"></div>
 <svg class="mountains mountains--layer1" xmlns="http://www.w3.org/2000/svg" width="1920" height="200" viewBox="0 0 1920 200" preserveAspectRatio="none">
   <title>bergskedja</title>
@@ -21,32 +24,33 @@
 <script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
 <script src="app.js"></script>
 
-<!-- Botão para reproduzir o áudio -->
-<button id="noButton"></button>
+
 
 <!-- Elemento de áudio -->
 <audio id="audioTeste" src="musica-da-winx-funk_trim11.mp3" preload="auto"></audio>
+
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
 <script src="app.js"></script>
 
 <script>
-    // Obtém referência para o botão e o elemento de áudio
+    const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const audioTeste = document.getElementById('audioTeste');
-    let audioActivated = false;
+    const message = document.getElementById('message');
 
-    // Ativa o áudio após o primeiro clique na página
-    document.body.addEventListener('click', function() {
-        audioActivated = true;
+    yesButton.addEventListener('click', () => {
+        const randomPositionX = Math.random() * (window.innerWidth - 100);
+        const randomPositionY = Math.random() * (window.innerHeight - 50);
+        yesButton.style.position = 'absolute';
+        yesButton.style.left = randomPositionX + 'px';
+        yesButton.style.top = randomPositionY + 'px';
     });
 
-    // Adiciona um ouvinte de evento ao botão para o evento mouseover
-    noButton.addEventListener('mouseover', () => {
-        if (audioActivated) {
-            audioTeste.play(); // Reproduz o áudio
-        }
+    noButton.addEventListener('click', () => {
+        audioTeste.play(); // Reproduz o áudio
+        message.style.display = 'block'; // Mostra a mensagem
     });
 </script>
 
